@@ -4,6 +4,11 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
+
+GET     /                           controllers.HomeController.onsale
+
+Get     /                           controllers.HomeController.about
+
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code

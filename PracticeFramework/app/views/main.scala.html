@@ -1,9 +1,11 @@
+@(pagename: String)(content: Html)
 <!DOCTYPE html>
 <html>
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
 	<style>
 	    .footer { font-weight: bold; color: white; background-color: black; }
 	    .sidecol { font-weight: bold; background-color: steelblue; }
@@ -12,7 +14,7 @@
 	    .midcol h3 { text-align: center; color: steelblue; }
 	    .redtext { color: red; }
 	</style>
-	<title>Online Flea Market</title>
+	<title>OFM @pagename</title>
     </head>
     <body>
 	<nav class="navbar navbar-inverse">
@@ -21,9 +23,11 @@
 		    <a class="navbar-brand" href="#">WebSiteName</a>
 		</div>
 		<ul class="nav navbar-nav">
-		    <li @if(pagename == "Home"){class="active"}><a href="/">Home</a></li>
-		    <li @if(pagename == "Products"){class="active"}><a href="/onsale">Products</a></li>
-		    <li @if(pagename == "About Us"){class="active"}><a href="/about">About us</a></li>
+		    <li @if(pagename == "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
+		    <li @if(pagename == "On Sale"){class="active"}><a href="@routes.HomeController.onsale()">On Sale</a></li>
+		    <li @if(pagename == "About Us"){class="active"}><a href="@routes.HomeController.about()">About us</a></li>
+			<li @if(pagename == "Contact"){class="active"}><a href="@routes.HomeController.Contact()">Contact</a></li>
+			<li @if(pagename == "Reviews"){class="active"}><a href="@routes.HomeController.Reviews()">Review</a></li>
 		</ul>
 	    </div>
 	</nav>
@@ -39,9 +43,8 @@
 		</div>
 		<div class="col-sm-6">
 		    <div class="midcol">
-			<h1>Welcome to the Online Flea Market!</h1>
-			<h3>The place where you can buy anything and sell anyting<br/> (as long as it is legal and morally ok)</h3>
-		    </div>
+				@content
+			</div>
 		</div>
 		<div class="col-sm-3">
 		    <div class="well sidecol">

@@ -9,6 +9,10 @@ GET     /onsale                          controllers.HomeController.onsale
 
 GET     /about                           controllers.HomeController.about
 
+GET     /Contact                           controllers.HomeController.Contact
+
+GET     /Reviews                          controllers.HomeController.Reviews
+
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
